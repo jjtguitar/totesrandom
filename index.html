@@ -5,62 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Question Generator</title>
     <style>
-        body {
-            font-family: 'YourChosenFont', sans-serif;
-            background-image: url('your-background-image.jpg');
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: white;
-            text-align: center;
+        /* Self-hosted font */
+        @font-face {
+            font-family: 'MyFont';
+            src: url('fonts/ObelixPro-cyr.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
-        .question-container {
-            background: rgba(0, 0, 0, 0.5);
+        /* Apply the font */
+        body {
+            font-family: 'MyFont', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: url('images/Totes_Portrait_BG2.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: black;
+        }
+
+        #question-box {
+            font-size: 24px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 255);
             padding: 20px;
             border-radius: 10px;
-            max-width: 90%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
         }
 
         button {
-            background-color: #ff9800;
-            border: none;
             padding: 10px 20px;
+            font-family: 'MyFont';
+			font-size: 18px;
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            border: none;
             border-radius: 5px;
-            font-size: 16px;
-            color: white;
-            margin-top: 20px;
         }
 
-        @media (min-width: 600px) {
-            .question-container {
-                max-width: 50%;
-            }
+        button:hover {
+            background-color: #555;
+			color: white
         }
     </style>
 </head>
 <body>
 
-    <div class="question-container">
-        <h1 id="question">Press the button to get a question!</h1>
-        <button onclick="generateQuestion()">Next Question</button>
-    </div>
+    <div id="question-box">Click the button to get a random question!</div>
+    <br>
+    <button onclick="generateRandomQuestion()">Totes Random</button>
 
     <script>
         const questions = [
-            'What is your favorite color?',
-            'What inspires you the most?',
-            'If you could travel anywhere, where would you go?',
-            // Add your list of questions here
+            "What's your favorite hobby?",
+            "If you could travel anywhere, where would it be?",
+            "What's the best book you've ever read?",
+            "If you could have any superpower, what would it be?",
+            "What's your favorite movie of all time?",
+            "What is your biggest fear?",
+            "If you won the lottery, what’s the first thing you would buy?",
+			"If you won the lottery, what’s the first thing you would do?",
+			"What was your favourite food when you were a child?",
+			"What is one of your favourite quotes?",
+			"What chore do you absolutely hate doing?",
+			"What is your favourite form of exercise?",
+			"What is your least favourite mode of transportation?",
+			"If you could choose anyone, who would you pick as your mentor?",
+			"If you could learn to do anything, what would it be?",
+			"If you could witness any event past, presetn or future, what would it be?",
+			"What is one invention that you think actually sucks? Why?",
+			"If you could meet anyone, living or dead, who would you meet?",
+			"What do you want to be when you grow up?",
+			"When you have 30 minutes of free time, how do you pass the time?",
+			"Have you ever had something happen to you that you thought was bad but it turned out to be for the best?",
+			"What do you miss most about being a kid?",
+			"What is something you learned in the last week?",
+			"If you could have any superhero power, what would it be?",
+			"What is your biggest pet peeve?",
+			"Do you like spicy food and why?",
+			"Would you rather go into the future or the past?",
+			"If you were an animal, what would you be and why?",
+			"What is one goal you would like to achieve in your lifetime?",
+			"If you were stranded on a desert island, what three items would you want to have with you?",
+			"Who was your favourite teacher, and why?",
+			"Besides God, who has influenced you the most?",
+			"If you sat down next to Jesus on a bus, what would you talk about?",
+			"When did God become real to you?",
+			"What biblical character inspires you the most? (Excluding Jesus) Why?",
+			"What is the first thing that comes to mind when you think about God?",
+			"What is your favourite Bible verse (or one of your favourites), and what does it mean to you?",
+			"Joel and Dana are totes awesome and I miss them a lot. I know it's not a question, but it's true.",
         ];
 
-        function generateQuestion() {
+        function generateRandomQuestion() {
             const randomIndex = Math.floor(Math.random() * questions.length);
-            document.getElementById('question').textContent = questions[randomIndex];
+            document.getElementById('question-box').innerHTML = questions[randomIndex];
         }
     </script>
 
